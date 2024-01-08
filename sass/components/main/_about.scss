@@ -1,0 +1,106 @@
+.about-pics{
+    @media screen and (max-width: 768px) {
+        display: none;
+      }      
+      @media screen and (min-width: 768px) {
+        margin-right: 64px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        display: flex;
+      }
+}
+.about__img--desktop{
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+    @media screen and (min-width: 1200px) {
+        display: block;
+        width: 250px;
+        &:not(:last-child){
+            margin-right: 30px;
+            margin-bottom: 0;
+        }
+    }
+}
+.about__img--tablet{
+    @media screen and (min-width: 768px) {
+        &:not(:last-child){
+            margin-bottom: 64px;
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        display: none;
+    }
+}
+
+.about-info{
+    @media screen and (min-width: 480px) {
+        width: 418px;
+        margin: 0 auto;
+      }
+      @media screen and (min-width: 768px) {
+        width: 330px;
+        }
+      @media screen and (min-width: 1200px) {
+        width: 500px;
+      }
+
+}
+.about__suptitle{
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    
+    color: $title-text-color;
+    &::before{
+        width: 60px;
+        height: 1px;
+        background: $title-text-color;
+        content: '';
+        display: inline-block;
+        margin-right: 20px;
+        vertical-align: middle;
+    }
+}
+.about__title{
+    @extend %section__title;
+    display: block;
+    margin-bottom: 20px;
+    @media screen and (max-width: 1200px) {
+        font-size: 28px;
+      }
+}
+.about__subtitle{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    color: $text-color-light;
+    @media screen and (max-width: 1200px) {
+        font-size: 16px;
+      }
+}
+.about__decriotion{
+    display: block;
+    margin-bottom: 40px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    
+    color: $text-color-light;
+}
+.about__btn{
+    @extend %button;
+    display: inline-block;
+    color: $title-text-color;
+    &:hover, &:focus{
+        color: #fff;
+    }
+}

@@ -1,0 +1,19 @@
+.header{
+    width: 100%;
+    background-image: url(../images/Slider/Slider_img-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+      @media screen and (max-width: 768px) {
+        padding: 208px 0 183px;
+        background-image: linear-gradient(to right, rgba(25, 28, 38, 0.2), rgba(25, 28, 38, 0.2)), url(../images/Slider/Slider_img-1.jpg);
+        background-position: 60%;
+        background-attachment:local;
+      }
+      @media screen and (min-width: 768px) {
+        padding: 272px 0 245px;
+      }
+      @media screen and (min-width: 1200px) {
+        padding: 276px 0 206px;
+      }
+}

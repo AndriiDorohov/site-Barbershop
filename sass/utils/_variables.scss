@@ -1,0 +1,126 @@
+
+$primary-text-color: #212121;
+$title-text-color: #303030;
+$accent-color: #2196f3;
+$bg-color: #2f303a;
+$text-color-light: #555;
+$button-two: #f5f4fa;
+$fill: #AFB1B8;
+$transition: cubic-bezier(0.4, 0, 0.2, 1);
+
+*{
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    font-size: 14px;
+    color: $primary-text-color;
+    letter-spacing: 0.03em;
+    line-height: 1.14;
+
+    background-color: white;
+    &.lock{
+        overflow: hidden;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    @media screen and (min-width: 320px) {
+        width: 320px;
+        margin: 0 auto;
+      }
+    @media screen and (min-width: 480px) {
+        width: 480px;
+        margin: 0 auto;
+        padding: 0 31px;
+      }
+      @media screen and (min-width: 768px) {
+        width: 768px;
+        padding: 0 40px;
+      }
+      @media screen and (min-width: 1200px) {
+        width: 1200px;
+        padding: 0 55px;
+      }
+}
+.flex{
+    display: flex;
+}
+.section{
+    margin: 0 auto;
+    @media screen and (max-width: 768px) {
+        padding: 84px 0;
+      }
+      @media screen and (min-width: 768px) {
+        padding: 100px 0;
+      }
+      @media screen and (min-width: 1200px) {
+        padding: 130px 0;
+      }
+}
+%section__title{
+    font-family: 'Raleway';
+    font-weight: bold;
+    font-size: 42px;
+    color: $title-text-color;
+}
+
+.suptitle-primary, .suptitle-secondary{
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 15px;
+    color: $title-text-color;
+}
+.suptitle-secondary{
+    color: #9DA4BD99;
+}
+.suptitle-primary::before,
+.suptitle-secondary::before{
+    width: 60px;
+    height: 1px;
+    background: #9DA4BD99;
+    content: '';
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.suptitle-primary::before{
+    background: rgba(48, 48, 48, 1);
+}
+%button{
+    font-size: 12px;
+    color: #FFFFFF;
+    padding: 12px 20px;
+    border: 1px solid #FF6C00;
+    border-radius: 25px;
+    box-sizing: border-box;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 250ms $transition, color 250ms $transition;
+    &:hover, &:focus{
+        background-color: #FF6C00;
+    }
+}
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

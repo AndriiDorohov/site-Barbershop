@@ -1,0 +1,35 @@
+.footer__section{
+    background-color: #191C26;
+    display: flex;
+    color: #9DA4BD;
+    
+    @media screen and (max-width: 768px) {
+        display: block;
+        padding: 84px 0 0;
+      }
+      @media screen and (min-width: 768px) {
+        display: block;
+        padding: 100px 0 0;
+      }
+      @media screen and (min-width: 1200px) {
+        display: flex;
+        padding: 0;
+      }
+}
+.footer__title{   
+    margin-bottom: 40px;
+
+    font-family: Raleway;
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 1.16;
+    letter-spacing: 0.05em;
+
+    color: #FFFFFF;
+        
+    @media screen and (max-width: 768px) {
+        text-align: center;
+    }
+}
+
+
