@@ -1,5 +1,8 @@
 # site-Barbershop
-
+https://andriidorohov.github.io/site-Barbershop
+<div align="center">
+  <img src="https://github.com/AndriiDorohov/goit-site-Web-Studio/blob/main/preview.png"/>
+</div>
 site-Barbershop is a single-page portfolio website developed during an HTML/CSS course. It serves as a virtual business card, presenting company information, services, pricing, and contact details. The website is semantically structured and designed to be responsive across various devices.
 
 ## Technologies Used
