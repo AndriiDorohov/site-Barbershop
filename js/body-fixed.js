@@ -2,7 +2,6 @@ $(document).ready(function() {
     $('.menu__button').click(function(event) {
         $('body').toggleClass('lock');
         $('.menu__button').toggleClass('menu__button--open');
-        // $('.menu__button').toggleClass('menu__button--open');
         $('.navbar').toggleClass('navbar--open');
 
     });
