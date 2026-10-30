@@ -1517,3 +1517,18 @@ img {
   margin-right: 20px;
   vertical-align: middle;
 }
+
+/* Booking is a portfolio preview; inputs and submit action are intentionally disabled. */
+.form-demo-notice {
+  margin: 0 0 24px;
+  max-width: 38rem;
+  color: #9da4bd;
+  line-height: 1.6;
+}
+
+.form-online-appointment input:disabled,
+.form-online-appointment textarea:disabled,
+.form-online-appointment button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
