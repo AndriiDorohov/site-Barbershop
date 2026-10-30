@@ -63,16 +63,27 @@ images/                Illustrations, icons, and project screenshot
 - The business address, contact details, opening hours, and social identities are fictional display content, not real contacts. Non-working external links are rendered as text rather than clickable anchors.
 - Structured Organization schema was removed because this is not a genuine operating business.
 - Mobile navigation uses only vanilla JavaScript. Clicking a section closes the menu; Escape, outside clicks, and desktop resizing also dismiss it.
-- Automated tests, accessibility checks, and a build pipeline have not yet been set up.
+- A lightweight Chromium smoke-test suite now covers viewport widths, mobile navigation, disabled booking, anchors, and keyboard activation. It is not a full accessibility audit or a production build test.
 - This README documents source-code behavior; browser compatibility and the live GitHub Pages deployment still need to be rechecked.
+
+## Browser checks
+
+The repository includes Playwright/Chromium smoke tests that check the mobile menu, anchors, responsive overflow at five viewport widths, disabled booking fields, and the keyboard-operated back-to-top button.
+
+```bash
+python3 -m pip install playwright==1.56.0
+python3 -m playwright install chromium
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+```
+
+GitHub Actions also runs these checks for proposed changes and uploads mobile and desktop preview screenshots as temporary workflow artifacts. Passing smoke tests is not a substitute for manual visual and accessibility review.
 
 ## Planned improvements
 
-1. Verify mobile menu interactions, internal navigation, and responsive behavior in a browser.
+1. Review the captured mobile and desktop screenshots and correct any remaining responsive issues.
 2. Review remaining content accuracy, keyboard accessibility, and image descriptions.
-3. Add lightweight automated checks, ideally covering navigation and disabled form behavior.
-4. Verify that compiled CSS remains in sync with the Sass source.
-5. Revisit the published demo after testing and merging the revised site.
+3. Verify that compiled CSS remains in sync with the Sass source.
+4. Revisit the published demo after testing and merging the revised site.
 
 ## Project context
 
