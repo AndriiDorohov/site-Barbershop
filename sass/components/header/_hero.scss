@@ -44,6 +44,9 @@
     @media screen and (max-width: 1200px) {
         font-size: 48px;
       }
+    @media screen and (max-width: 479px) {
+        font-size: clamp(32px, 9vw, 43px);
+      }
 
 }
 .hero__decription{
