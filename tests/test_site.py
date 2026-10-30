@@ -124,10 +124,24 @@ class BarbershopBrowserTests(unittest.TestCase):
                             }))
                             .slice(0, 12)"""
                     )
+                    scroll_children = page.evaluate(
+                        """() => [...document.querySelectorAll('body, body *')]
+                          .filter(el => el.scrollWidth > el.clientWidth + 2
+                                  && el.scrollWidth > innerWidth)
+                          .map(el => ({
+                            tag: el.tagName.toLowerCase(),
+                            cls: typeof el.className === 'string'
+                                ? el.className.slice(0, 70) : 'svg',
+                            client: el.clientWidth,
+                            scroll: el.scrollWidth
+                          }))
+                          .slice(0, 25)"""
+                    )
                     self.assertLessEqual(
                         actual_width,
                         width + 1,
-                        f"Horizontal overflow: viewport={width}, document={actual_width}; elements={offenders}",
+                        f"Horizontal overflow: viewport={width}, document={actual_width}; "
+                        f"outlying-boxes={offenders}; overflowing-containers={scroll_children}",
                     )
                 finally:
                     page.close()
