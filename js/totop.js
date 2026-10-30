@@ -1,21 +1,22 @@
 const toTopButton = document.getElementById("to-top-btn");
 
-toTopButton.addEventListener("click", function () {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
+if (toTopButton) {
+  const prefersReducedMotion = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const updateVisibility = () => {
+    const visible = window.scrollY > window.innerHeight / 2;
+    toTopButton.style.display = visible ? "block" : "none";
+  };
+
+  toTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion() ? "auto" : "smooth",
+    });
   });
-});
 
-
-window.addEventListener('scroll', function() {
-    var button = document.querySelector('.to-top-btn');
-    var windowHeight = window.innerHeight;
-    var scrollY = window.scrollY || window.pageYOffset;
-
-    if (scrollY > windowHeight  / 2) {
-        button.style.display = 'block';
-    } else {
-        button.style.display = 'none';
-    }
-});
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+  window.addEventListener("resize", updateVisibility);
+  updateVisibility();
+}
