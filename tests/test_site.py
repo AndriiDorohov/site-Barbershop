@@ -60,6 +60,11 @@ class BarbershopBrowserTests(unittest.TestCase):
 
             button.click()
             page.set_viewport_size({"width": 1024, "height": 768})
+            page.wait_for_function(
+                """() => document.querySelector('[data-menu-button]')
+                    .getAttribute('aria-expanded') === 'false'""",
+                timeout=2000,
+            )
             self.assertEqual(button.get_attribute("aria-expanded"), "false")
             self.assertNotIn("lock", page.locator("body").get_attribute("class"))
         finally:
@@ -102,10 +107,27 @@ class BarbershopBrowserTests(unittest.TestCase):
                     actual_width = page.evaluate(
                         "() => document.documentElement.scrollWidth"
                     )
+                    offenders = page.evaluate(
+                        """() => [...document.querySelectorAll('body *')]
+                            .filter(el => {
+                                const rect = el.getBoundingClientRect();
+                                return rect.right > innerWidth + 1
+                                    && rect.width > 0
+                                    && getComputedStyle(el).display !== 'none';
+                            })
+                            .map(el => ({
+                                tag: el.tagName.toLowerCase(),
+                                className: typeof el.className === 'string'
+                                    ? el.className.slice(0, 85) : 'svg',
+                                right: Math.round(el.getBoundingClientRect().right),
+                                width: Math.round(el.getBoundingClientRect().width)
+                            }))
+                            .slice(0, 12)"""
+                    )
                     self.assertLessEqual(
                         actual_width,
                         width + 1,
-                        f"Horizontal overflow: viewport={width}, document={actual_width}",
+                        f"Horizontal overflow: viewport={width}, document={actual_width}; elements={offenders}",
                     )
                 finally:
                     page.close()
