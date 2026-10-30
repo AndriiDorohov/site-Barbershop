@@ -1114,8 +1114,9 @@ img {
 }
 @media screen and (max-width: 768px) {
   .work__img {
-    width: 418px;
-    height: 360px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 418 / 360;
     -o-object-fit: cover;
        object-fit: cover;
   }
