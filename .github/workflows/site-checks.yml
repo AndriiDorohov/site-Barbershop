@@ -1,0 +1,48 @@
+name: Static site browser checks
+
+on:
+  pull_request:
+    paths:
+      - "index.html"
+      - "css/**"
+      - "sass/**"
+      - "js/**"
+      - "images/**"
+      - "tests/**"
+      - ".github/workflows/site-checks.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    name: Chromium responsive and accessibility smoke tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright and Chromium
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0
+          python -m playwright install --with-deps chromium
+
+      - name: Run website smoke tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+
+      - name: Upload preview screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: barbershop-browser-screenshots
+          path: screenshots/
+          if-no-files-found: ignore
+          retention-days: 7
