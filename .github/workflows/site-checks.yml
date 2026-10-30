@@ -1,9 +1,6 @@
 name: Static site browser checks
 
 on:
-  push:
-    branches:
-      - portfolio/barbershop-baseline-2026
   pull_request:
     paths:
       - "index.html"
