@@ -424,9 +424,9 @@
     <footer class="footer__section flex" id="footer">
       <div class="footer__form--container">
         <div class="footer__form">
-          <h2 class="footer__title">Booking Preview (Demo)</h2>
-          <div class="form-online-appointment" aria-label="Disabled booking form preview">
-            <p class="form-demo-notice" role="note">Portfolio demonstration only — bookings are unavailable. Please do not enter personal details.</p>
+          <h2 class="footer__title" id="booking-preview-heading">Booking Preview (Demo)</h2>
+          <div class="form-online-appointment" role="group" aria-labelledby="booking-preview-heading" aria-describedby="booking-preview-note">
+            <p class="form-demo-notice" id="booking-preview-note" role="note">Portfolio demonstration only — bookings are unavailable. Please do not enter personal details.</p>
             <div class="form-field__contact-info">
               <ul class="form-field">
                 <li class="form-field__item">
@@ -486,11 +486,11 @@
             <svg class="contacts__icon" width="24px" height="24px">
               <use href="./images/icons/sprite.svg#icon-phone"></use>
             </svg>
-            <span class="contacts__link">$1</span>
+            <span class="contacts__link">+1 380-441-1111</span>
             <svg class="contacts__icon" width="24px" height="24px">
               <use href="./images/icons/sprite.svg#icon-email"></use>
             </svg>
-            <span class="contacts__link">$1</span>
+            <span class="contacts__link">barbershop@email.com</span>
           </div>
 
           <div class="schedule-box">
@@ -508,12 +508,14 @@
         <span class="social-box__link social-link">YouTube</span>
       </div>
     </div>
-    <img
-      src="./images/button-up.svg"
+    <button
+      type="button"
       class="to-top-btn"
       id="to-top-btn"
-      alt="Up Button"
-    />
+      aria-label="Back to top"
+    >
+      <img src="./images/button-up.svg" alt="" width="80" height="80" />
+    </button>
     <script src="./js/totop.js"></script>
     <script src="./js/id-scroll.js"></script>
     <script src="./js/menu-button.js"></script>
