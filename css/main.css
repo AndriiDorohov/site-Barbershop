@@ -508,7 +508,8 @@ img {
 
 @media screen and (max-width: 768px) {
   .hero {
-    width: 306px;
+    width: calc(100% - 62px);
+    max-width: 306px;
     margin-left: 31px;
   }
 }
