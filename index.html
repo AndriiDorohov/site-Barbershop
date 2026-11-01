@@ -20,36 +20,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
     />
     <link rel="stylesheet" href="./css/main.css" />
-    <!-- Schema Organization -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "BarberShop",
-        "url": "https://www.barbershop.com",
-        "logo": "https://www.barbershop.com/images/logo.png",
-        "description": "Expert barbers providing fashionable men's haircuts in Kyiv.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Street Vasilkovaya, 7a",
-          "addressLocality": "Kyiv",
-          "postalCode": "08132",
-          "addressCountry": "UA"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+1 380-441-1111",
-          "contactType": "Customer service"
-        }
-      }
-    </script>
   </head>
   <body id="scroll">
     <header class="header">
       <aside class="sidebar">
         <div class="sidevar__list">
-          <a href="#" class="sidebar__link">Instagram</a>
-          <a href="#" class="sidebar__link">YouTube</a>
+          <span class="sidebar__link">Instagram</span>
+          <span class="sidebar__link">YouTube</span>
         </div>
       </aside>
 
@@ -59,6 +36,7 @@
       <button
         type="button"
         class="menu__button"
+        aria-label="Open menu"
         aria-expanded="false"
         aria-controls="navbar"
         data-menu-button
@@ -99,14 +77,12 @@
               </li>
             </ul>
             <div class="auth-nav__list">
-              <a href="tel:+13804411111" class="auth-nav__link"
-                >+1 380-441-1111</a
-              >
-              <a href="#footer" class="auth-nav__btn">Online Booking</a>
+              <span class="auth-nav__link">+1 380-441-1111</span>
+              <a href="#footer" class="auth-nav__btn">Booking Preview</a>
             </div>
             <div class="network__list">
-              <a href="#" class="network__link">Instagram</a>
-              <a href="#" class="network__link">YouTube</a>
+              <span class="network__link">Instagram</span>
+              <span class="network__link">YouTube</span>
             </div>
           </div>
         </nav>
@@ -163,7 +139,7 @@
               same wavelength as our clients. Therefore, we are always ready to
               improve everyone who comes to us!
             </p>
-            <a href="#footer" class="about__btn">Online Booking</a>
+            <a href="#footer" class="about__btn">Booking Preview</a>
           </div>
         </div>
       </section>
@@ -212,7 +188,7 @@
               </li>
             </ul>
           </div>
-          <a href="#footer" class="price__btn">Online booking</a>
+          <a href="#footer" class="price__btn">Booking Preview</a>
         </div>
       </section>
 
@@ -271,7 +247,7 @@
               <p class="master__name">John Smith</p>
               <span class="master__decription">Extreme Barber</span>
               <div class="master-social__box">
-                <a href="" class="master-social__link">
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-instagram"
@@ -279,8 +255,8 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
-                <a href="" class="master-social__link">
+                </span>
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-twitter"
@@ -288,8 +264,8 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
-                <a href="" class="master-social__link">
+                </span>
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-facebook"
@@ -297,8 +273,8 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
-                <a href="" class="master-social__link">
+                </span>
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-linkedin"
@@ -306,7 +282,7 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
+                </span>
               </div>
             </li>
             <li class="master__card">
@@ -318,7 +294,7 @@
               <p class="master__name">Michele Doe</p>
               <span class="master__decription">Extreme Barber</span>
               <div class="master-social__box">
-                <a href="" class="master-social__link">
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-instagram"
@@ -326,8 +302,8 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
-                <a href="" class="master-social__link">
+                </span>
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-twitter"
@@ -335,8 +311,8 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
-                <a href="" class="master-social__link">
+                </span>
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-facebook"
@@ -344,8 +320,8 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
-                <a href="" class="master-social__link">
+                </span>
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-linkedin"
@@ -353,7 +329,7 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
+                </span>
               </div>
             </li>
             <li class="master__card">
@@ -365,7 +341,7 @@
               <p class="master__name">Alan Black</p>
               <span class="master__decription">Extreme Barber</span>
               <div class="master-social__box">
-                <a href="" class="master-social__link">
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-instagram"
@@ -373,8 +349,8 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
-                <a href="" class="master-social__link">
+                </span>
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-twitter"
@@ -382,8 +358,8 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
-                <a href="" class="master-social__link">
+                </span>
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-facebook"
@@ -391,8 +367,8 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
-                <a href="" class="master-social__link">
+                </span>
+                <span class="master-social__link">
                   <svg class="master-social__icon">
                     <use
                       href="./images/icons/sprite.svg#icon-linkedin"
@@ -400,7 +376,7 @@
                       height="24px"
                     ></use>
                   </svg>
-                </a>
+                </span>
               </div>
             </li>
           </ul>
@@ -447,8 +423,9 @@
     <footer class="footer__section flex" id="footer">
       <div class="footer__form--container">
         <div class="footer__form">
-          <h2 class="footer__title">Online Booking</h2>
-          <form class="form-online-appointment" action="">
+          <h2 class="footer__title" id="booking-preview-heading">Booking Preview (Demo)</h2>
+          <div class="form-online-appointment" role="group" aria-labelledby="booking-preview-heading" aria-describedby="booking-preview-note">
+            <p class="form-demo-notice" id="booking-preview-note" role="note">Portfolio demonstration only — bookings are unavailable. Please do not enter personal details.</p>
             <div class="form-field__contact-info">
               <ul class="form-field">
                 <li class="form-field__item">
@@ -456,6 +433,7 @@
                     type="text"
                     name="name"
                     id="name"
+                    disabled
                     class="form-field__input"
                     autocomplete="off"
                   />
@@ -466,6 +444,7 @@
                     type="tel"
                     name="tel"
                     id="tel"
+                    disabled
                     class="form-field__input"
                     autocomplete="off"
                   />
@@ -475,19 +454,20 @@
             </div>
             <ul>
               <li class="form-field__item">
-                <label class="form-field__legent">Message</label>
+                <label for="message" class="form-field__legent">Message</label>
                 <textarea
                   class="form-field__textarea"
-                  name=""
-                  id=""
+                  name="message"
+                  id="message"
+                  disabled
                   cols="30"
                   rows="10"
                   maxlength="300"
                 ></textarea>
               </li>
             </ul>
-            <button type="submit" class="footer__btn">Send</button>
-          </form>
+            <button type="button" class="footer__btn" disabled>Unavailable</button>
+          </div>
         </div>
       </div>
 
@@ -505,11 +485,11 @@
             <svg class="contacts__icon" width="24px" height="24px">
               <use href="./images/icons/sprite.svg#icon-phone"></use>
             </svg>
-            <a class="contacts__link" href="tel:">+1 380-441-1111</a>
+            <span class="contacts__link">+1 380-441-1111</span>
             <svg class="contacts__icon" width="24px" height="24px">
               <use href="./images/icons/sprite.svg#icon-email"></use>
             </svg>
-            <a class="contacts__link" href="mailto:">barbershop@email.com</a>
+            <span class="contacts__link">barbershop@email.com</span>
           </div>
 
           <div class="schedule-box">
@@ -523,21 +503,20 @@
     <div class="copyright">
       <p class="copy__text">&copy; Copyright <span>2021</span></p>
       <div class="social-box">
-        <a href="#" class="social-box__link social-link">Instagram</a>
-        <a href="#" class="social-box__link social-link">YouTube</a>
+        <span class="social-box__link social-link">Instagram</span>
+        <span class="social-box__link social-link">YouTube</span>
       </div>
     </div>
-    <img
-      src="./images/button-up.svg"
+    <button
+      type="button"
       class="to-top-btn"
       id="to-top-btn"
-      alt="Up Button"
-    />
+      aria-label="Back to top"
+    >
+      <img src="./images/button-up.svg" alt="" width="80" height="80" />
+    </button>
     <script src="./js/totop.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="./js/id-scroll.js"></script>
     <script src="./js/menu-button.js"></script>
-    <script src="./js/body-fixed.js"></script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 .hero{
     @media screen and (max-width: 768px) {
-        width: 306px;
+        width: calc(100% - 62px);
+        max-width: 306px;
         margin-left: 31px;
       }
       @media screen and (min-width: 768px) {
@@ -42,6 +43,9 @@
     color: #FFFFFF;
     @media screen and (max-width: 1200px) {
         font-size: 48px;
+      }
+    @media screen and (max-width: 479px) {
+        font-size: clamp(32px, 9vw, 43px);
       }
 
 }

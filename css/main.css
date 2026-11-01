@@ -508,7 +508,8 @@ img {
 
 @media screen and (max-width: 768px) {
   .hero {
-    width: 306px;
+    width: calc(100% - 62px);
+    max-width: 306px;
     margin-left: 31px;
   }
 }
@@ -556,6 +557,11 @@ img {
 @media screen and (max-width: 1200px) {
   .hero__title {
     font-size: 48px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .hero__title {
+    font-size: clamp(32px, 9vw, 43px);
   }
 }
 
@@ -1114,8 +1120,9 @@ img {
 }
 @media screen and (max-width: 768px) {
   .work__img {
-    width: 418px;
-    height: 360px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 418 / 360;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -1142,6 +1149,14 @@ img {
   padding: 0;
   cursor: pointer;
   opacity: 0.9;
+  border: 0;
+  background: transparent;
+  z-index: 3;
+}
+.to-top-btn img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .footer__section {
@@ -1516,4 +1531,19 @@ img {
   display: inline-block;
   margin-right: 20px;
   vertical-align: middle;
+}
+
+/* Booking is a portfolio preview; inputs and submit action are intentionally disabled. */
+.form-demo-notice {
+  margin: 0 0 24px;
+  max-width: 38rem;
+  color: #9da4bd;
+  line-height: 1.6;
+}
+
+.form-online-appointment input:disabled,
+.form-online-appointment textarea:disabled,
+.form-online-appointment button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
 }

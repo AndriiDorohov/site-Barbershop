@@ -57,8 +57,9 @@
     width: 100%;
     transition: transform 250ms $transition;
     @media screen and (max-width: 768px) {
-        width: 418px;
-        height: 360px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 418 / 360;
         object-fit: cover;
     }
 }
