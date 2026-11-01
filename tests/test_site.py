@@ -6,20 +6,37 @@ Run with:
   python -m unittest discover -s tests -p "test_*.py" -v
 """
 
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from threading import Thread
 import unittest
 
 from playwright.sync_api import sync_playwright
 
 
 ROOT = Path(__file__).resolve().parent.parent
-URL = (ROOT / "index.html").as_uri()
 SCREENSHOTS = ROOT / "screenshots"
+
+
+class QuietStaticHandler(SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=str(ROOT), **kwargs)
+
+    def log_message(self, *args):
+        pass
 
 
 class BarbershopBrowserTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        # Serve over HTTP rather than file://: external SVG <use> references
+        # are blocked on file:// in Chromium even though GitHub Pages serves them.
+        cls.server = ThreadingHTTPServer(("127.0.0.1", 0), QuietStaticHandler)
+        cls.server_thread = Thread(target=cls.server.serve_forever, daemon=True)
+        cls.server_thread.start()
+        cls.site_url = f"http://127.0.0.1:{cls.server.server_port}/index.html"
+        cls.asset_url = f"http://127.0.0.1:{cls.server.server_port}"
+
         cls.playwright = sync_playwright().start()
         cls.browser = cls.playwright.chromium.launch(headless=True)
 
@@ -27,6 +44,9 @@ class BarbershopBrowserTests(unittest.TestCase):
     def tearDownClass(cls):
         cls.browser.close()
         cls.playwright.stop()
+        cls.server.shutdown()
+        cls.server.server_close()
+        cls.server_thread.join(timeout=5)
 
     def open_page(self, width=375, height=812):
         page = self.browser.new_page(
@@ -34,7 +54,8 @@ class BarbershopBrowserTests(unittest.TestCase):
             device_scale_factor=1,
             reduced_motion="reduce",
         )
-        page.goto(URL, wait_until="domcontentloaded")
+        response = page.goto(self.site_url, wait_until="load")
+        self.assertEqual(response.status, 200)
         return page
 
     def test_mobile_navigation(self):
@@ -155,6 +176,16 @@ class BarbershopBrowserTests(unittest.TestCase):
             button.focus()
             page.keyboard.press("Enter")
             page.wait_for_function("window.scrollY < 5")
+        finally:
+            page.close()
+
+    def test_svg_assets_available_over_http(self):
+        page = self.open_page()
+        try:
+            self.assertEqual(page.locator("svg.logo-img use").count(), 1)
+            svg = page.request.get(self.asset_url + "/images/icons/sprite.svg")
+            self.assertEqual(svg.status, 200)
+            self.assertIn("image/svg+xml", svg.headers.get("content-type", ""))
         finally:
             page.close()
 
